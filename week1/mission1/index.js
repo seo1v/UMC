@@ -1,4 +1,7 @@
-function correctForm() {
+document.getElementById("submit").addEventListener("click", 
+
+function (event) {
+    
   var name = document.getElementsByName("name")[0].value;
   var email = document.getElementsByName("email")[0].value;
   var age = document.getElementsByName("age")[0].value;
@@ -81,11 +84,13 @@ function correctForm() {
       pwdcheckError.textContent = "";
       pwdcheckCorrect.textContent = "비밀번호가 일치합니다.";
   }
+  event.preventDefault();
 
   document.querySelector(".modal-box").style.display = "flex";
 
   return true;
-}
+  
+});
 
 function isValidPwd(password) {
   var pwdPattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+[\]{}|\\:;<>?,./-]).{4,12}$/;
